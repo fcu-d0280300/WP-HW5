@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(function(){
+	$.ajax( {
+		url: "http://140.134.26.71:58080/web-prog/Hotels",
+		type: "GET",
+		dataType: "json",
+		success: function(data) {
+			
+			
+			
+			var items = data.Infos.Info;
+			for(var i = 0; i<items.length;i++){
+				var name = items[i].Name;
+				var imgURL = items[i].Picture1;
+				var web = items[i].Website;
+
+			 $("table").append('<tr><th>'+items[i].Name+'</th></tr>');
+			 $("table").append('<tr><th><a target="_blank"href = "'+web+'"><img src ="'+imgURL+'"width="280"height="200"></a></th></tr>');
+			
+			
+	
+			
+			}
+		
+		
+		},
+		error: function() {
+			
+		}
+	});
+});
+
+
+
+</script>
+</head>
+<body>
+
+<div id="attractions">
+</div>
+<table border ="1">
+			<caption></caption>
+			<thead>
+				<tr>
+					
+				</tr>
+			
+			</thead>
+			<tbody>
+			
+			</tbody>
+		</table>
+
+
+
+</body>
+</html>
